@@ -34,21 +34,15 @@ public class RegFormTests {
         $(".react-datepicker__month-select").selectOptionByValue("0");
         $(".react-datepicker__year-select").selectOptionByValue("1910");
         $(".react-datepicker__day--003").click();
-        $("#subjectsInput").click();
         $("#subjectsInput").setValue("M").pressEnter();
         $("#subjectsInput").setValue("s").pressEnter();
         $(byText("Sports")).click();
         $(byText("Reading")).click();
         $(byText("Music")).click();
-        File file = new File("src/test/resourses/readme.txt");
-        $("#uploadPicture").uploadFile(file);
-        $("#currentAddress").setValue("Street N");
-        String state = "NCR";
-        $("#state").click();
-        $(byText(state)).click();
-        String city = "Delhi";
-        $("#city").click();
-        $(byText(city)).click();
+        $("#uploadPicture").uploadFromClasspath("readme.txt");
+        $("#currentAddress").setValue("Street N build.123");
+        $("#react-select-3-input").setValue("NCR").pressEnter();
+        $("#react-select-4-input").setValue("Delhi").pressEnter();
         $("#submit").click();
         $(".modal-content").shouldBe(Condition.visible).shouldHave(
                 text("Ana"),
@@ -60,7 +54,7 @@ public class RegFormTests {
                 text("Maths, English"),
                 text("Sports, Reading, Music"),
                 text("readme.txt"),
-                text("Street N"),
+                text("Street N build.123"),
                 text("NCR Delhi")
         );
 
