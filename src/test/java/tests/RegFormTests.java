@@ -50,7 +50,19 @@ public class RegFormTests {
         $("#city").click();
         $(byText(city)).click();
         $("#submit").click();
-        $(".modal-content").shouldBe(Condition.visible).shouldHave(text("Ana"), text("Yyy"), text("Yyy@aaa.ru"), text("Other"), text("1234567890"), text("03 January,1910"), text("Maths, English"), text("Sports, Reading, Music"), text("readme.txt"), text("Street N"), text("NCR Delhi"));
+        $(".modal-content").shouldBe(Condition.visible).shouldHave(
+                text("Ana"),
+                text("Yyy"),
+                text("Yyy@aaa.ru"),
+                text("Other"),
+                text("1234567890"),
+                text("03 January,1910"),
+                text("Maths, English"),
+                text("Sports, Reading, Music"),
+                text("readme.txt"),
+                text("Street N"),
+                text("NCR Delhi")
+        );
 
     }
 }
